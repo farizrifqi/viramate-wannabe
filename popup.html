@@ -1,0 +1,148 @@
+<html>
+	<head>
+		<title>GBF zeraneL</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="js/popup.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<style>
+			body{
+				width:500px;
+				height:auto;
+			}
+			.lil-btn{
+				width:35px;
+				font-size:10px;
+			}
+			a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card text-center">
+			<div class="card-header">
+				<b style="color:red"><i class="fa fa-clock-o"></i> SERVER TIME <span id="time"></span> (JST+9)</b>
+			</div>
+			<div class="card-body">
+				<button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#tabProfile" aria-expanded="false" aria-controls="collapseExample">
+					<i class="fa fa-user"></i> Profile
+				</button>
+				<button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#raidTab" aria-expanded="false" aria-controls="collapseExample">
+					<i class="fa fa-optin-monster"></i> Raid
+				</button>
+				<button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#toolsTab" aria-expanded="false" aria-controls="collapseExample">
+					<i class="fa fa-wrench"></i> Tools
+				</button>
+				<br/><br/>
+				<div class="collapse show" id="tabStatus">
+					<div class="card card-body" style="text-align:left;">
+						<h5 class="text-center">Status</h5><hr/>
+						<b>Supplies:</b>
+						<div class="row">
+							<div class="col">
+								<img title="Full Elixir" src="http://game-a.granbluefantasy.jp/assets_en/img/sp/assets/item/normal/s/1.jpg" width="20"/> <span id="fullElix"></span>
+							</div>
+							<div class="col">
+								<img title="Half Elixir" src="http://game-a.granbluefantasy.jp/assets_en/img/sp/assets/item/normal/s/2.jpg" width="20"/> <span id="halfElix"></span>
+							</div>
+							<div class="col">
+								<img title="Soul Balm" src="http://game-a.granbluefantasy.jp/assets_en/img/sp/assets/item/normal/s/3.jpg" width="20"/> <span id="soulBalm"></span>
+							</div>
+							<div class="col">
+								<img title="Soul Berry" src="http://game-a.granbluefantasy.jp/assets_en/img/sp/assets/item/normal/s/5.jpg" width="20"/> <span id="soulBerry"></span>
+							</div>
+						</div>
+						<div class="row" id="buff">
+							<div class="col">
+								<b>Shop Buff:</b><br/>
+								<div id="shopBuff">
+								</div>
+							</div>
+							<div class="col">
+								<b>Crew Buff:</b><br/>
+								<div id="crewBuff">
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<br/>
+				<div class="collapse" id="tabProfile">
+					<div class="card card-body" style="text-align:left;">
+						<h5 class="text-center">Profile</h5><hr/>
+						<div class="row">
+							<div class="col">
+								<b>ID:</b><a href="#" id="copyProfileId" class="text-decoration-none">
+								<span id="profileID"></span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+</svg>
+								</a><br/><b>
+								Name: <span id="profileName"></span> <span id="profileTitleName"></span>
+								</b><br/>
+								<b>
+								Rank: <span id="profileRank"></span>
+								</b>
+							</div>
+							<div class="col">
+								<b>Crew: <span id="guildName"></span></b>
+								</a><br/><b>
+								<span id="guildAirship"></span>
+								</b><br/>
+								<b>
+								<a href="" id="gotoCrew">Goto Crew Detail</a>
+								</b>
+							</div>
+						</div>
+					</div>
+					<br/>
+				</div>
+				<div class="collapse" id="raidTab">
+					<div class="card card-body">
+						<h4>Raid <span class="badge" style="background:#fd7e14;" id="total-raid">0</span></h4><hr/>
+						<div id="raid-Tab">
+						</div>
+						<br/>
+						<button style="display:none;" class="btn btn-warning" id="clearRaid"><i class="fa fa-trash">Clear</i></button>
+					</div>
+					<br/>
+				</div>
+				<div class="collapse" id="toolsTab">
+					<div class="card card-body">
+						<h4>Tools</h4><hr/>
+						<b>Command</b>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="key1"></span>
+							</div>
+							<input type="text" id="link1" class="form-control">
+							<div class="input-group-append">
+								<button class="btn btn-secondary" id="save1">Save</button>
+							</div>
+						</div>
+						<br/>
+					</div>
+					<br/>
+				</div>
+				<div class="card card-body">
+					<h4>Fast Function </h4><hr/>
+					<b>Join Raid</b>
+					<div class="input-group mb-3">
+						<input type="text" id="code" class="form-control" placeholder="RAID CODE">
+						<div class="input-group-append">
+							<button id="join" class="btn btn-success"><i class="fa fa-paper-plane"></i> Join Raid</button>
+						</div>
+					</div>
+					<p style="font-weight:bold;text-align:left;color:red;" id="alertraid"></p>
+				</div>
+			</div>
+			<div class="card-footer text-muted">
+			&copy; zeraneL
+			</div>
+		</div>
+		<script src="js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	</body>
+</html>
