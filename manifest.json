@@ -1,0 +1,39 @@
+{
+	"manifest_version": 2,
+	"name": "zeraneL GBF Help",
+	"description": "Bantu gbf euy",
+	"version": "1.0",
+	"content_scripts": [ 
+		{
+			"matches": ["*://*/"],
+			"js": ["js/gbf.js", "js/rf.js"],
+			"run_at": "document_end"
+		}
+	],
+	"browser_action": {
+		"default_icon": "Z-Logo.png",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": ["js/background.js"],
+		"persistent": false
+	},
+	"permissions": [
+		"activeTab",
+		"storage",
+		"tabs",
+		"cookies",
+		"http://game.granbluefantasy.jp/",
+		"http://*/*", 
+		"https://*/*"
+	],
+	 "commands": {
+      "funcA": {
+        "suggested_key": {
+          "default": "Ctrl+Q"
+        },
+        "description": "Executes Func A"
+      }
+	}
+
+}
